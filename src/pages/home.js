@@ -2,19 +2,17 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {Header} from '../components/header';
 
-class App extends React.Component {
+export class Home extends React.Component {
     constructor(props) {
         super(props);
         this.state = {};
     }
     render() {
-        return ( 
-            <div> 
-                <h2>How to study!</h2>
-                <Header title="Helo"/>  
+        return (
+            <div>
+                <h2>Home Page!33333333</h2>
+                <Header title="Home Page"/>
             </div>
         );
     }
 }
-
-ReactDOM.render( <App /> , document.getElementById('app'));
