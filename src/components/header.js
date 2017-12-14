@@ -1,5 +1,4 @@
 import React from 'react';
-
 export class Header extends React.Component {
     constructor(props) {
         super(props);
@@ -17,15 +16,15 @@ export class Header extends React.Component {
         return (
             <div>
                 <header>{this.state.title}</header>
-                <div>我是组件</div>
+                <div>我是组件-{this.state.title}</div>
             </div>
         )
     }
 
     // DOM 挂载完成，可以获取DOM节点
     componentDidMount() {
-        console.log('ok');
-        this.setState({title: 'again'});
+        console.log('component did mount');
+        // this.setState({title: 'again'});
     }
 
     // DOM将要更新的时候
@@ -36,7 +35,7 @@ export class Header extends React.Component {
 
     // DOM更新完成
     componentDidUpdate(state) {
-        console.log(state);    
+        console.log(`componentDidUpdate-${state}`);
     }
 
 }
