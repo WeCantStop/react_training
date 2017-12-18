@@ -1,7 +1,8 @@
 import React from 'react';
 import {Switch, Link, Route} from 'react-router-dom';
-import {Home} from '../home';
+import {Home} from '../home/home';
 import {Login} from '.././user/login';
+import './index.scss';
 
 
 export class DashBoard extends React.Component {
@@ -14,7 +15,7 @@ export class DashBoard extends React.Component {
         return (
             <header>
                 <nav>
-                    <ul>
+                    <ul className='nav'>
                         <li><Link to='/'>Home</Link></li>
                         <li><Link to='/login'>Login</Link></li>
                     </ul>
