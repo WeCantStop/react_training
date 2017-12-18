@@ -18,8 +18,8 @@ export class Header extends Component {
 
     // react 相关的生命周期使用
     componentWillMount() {
-        console.log(this.props.title);
-        console.log(this.state);
+        // console.log(this.props.title);
+        // console.log(this.state);
     }
 
     // 渲染
@@ -35,19 +35,19 @@ export class Header extends Component {
 
     // DOM 挂载完成，可以获取DOM节点
     componentDidMount() {
-        console.log('component did mount');
+        // console.log('component did mount');
     }
 
     // DOM将要更新的时候
     componentWillUpdate(nextState, nextProp) {
-        console.log(nextState);
-        console.log(nextProp);
+        // console.log(nextState);
+        // console.log(nextProp);
     }
 
     // DOM更新完成
     componentDidUpdate(prevState) {
-        console.log(`componentDidUpdate`);
-        console.log(prevState);
+        // console.log(`componentDidUpdate`);
+        // console.log(prevState);
     }
 
 }
