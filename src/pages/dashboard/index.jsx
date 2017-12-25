@@ -1,11 +1,11 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {Switch, Link, Route} from 'react-router-dom';
-import {Home} from '../home/home';
-import {Login} from '.././user/login';
+import {Home} from '../home/home.jsx';
+import {Login} from '.././user/login.jsx';
 import './index.scss';
 
 
-export class DashBoard extends React.Component {
+export class DashBoard extends Component {
     constructor(props) {
         super(props);
         this.state = {};
@@ -25,7 +25,7 @@ export class DashBoard extends React.Component {
     }
 }
 
-export class Main extends React.Component {
+export class Main extends Component {
     constructor(props) {
         super(props);
         this.state = {};
