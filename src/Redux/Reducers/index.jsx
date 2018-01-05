@@ -1,16 +1,13 @@
 // Reduces
 
 export const count = (state = 0, action = {}) => {
-    const {type, payload} = action;
-    switch (type) {
-        case "INCREASE": {
-            console.log(payload);
-            return state + 1;
+    switch (action.type) {
+        case "INCREASE_NUMBER": {
+            return state + action.number;
         }
 
-        case "DECREASE": {
-            console.log(payload);
-            return state - 1;
+        case "DECREASE_NUMBER": {
+            return state - action.number;
         }
 
         default: return state;

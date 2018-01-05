@@ -3,6 +3,7 @@ import {Header} from '../../components/header.jsx';
 import {Container} from "../../components/container.jsx";
 import './login.scss';
 import {store} from '../../Redux/Store/index.jsx'
+import {increaseNumber, decreaseNumber} from '../../Redux/Actions/index.jsx';
 
 
 export class Login extends React.Component {
@@ -47,11 +48,11 @@ export class Login extends React.Component {
 
     increase() {
         // store触发reducer
-        store.dispatch({type: 'INCREASE', payload: 'I am +1'});
+        store.dispatch(increaseNumber(2));
     }
 
     decrease() {
         // store触发reducer
-        store.dispatch({type: 'DECREASE', payload: 'I am -1'});
+        store.dispatch(decreaseNumber(1));
     }
 }
