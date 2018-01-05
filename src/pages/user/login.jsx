@@ -13,6 +13,10 @@ export class Login extends React.Component {
         }
     }
 
+    componentWillMount() {
+        const subscription$ = store.subscribe(this.onChange.bind(this));
+    }
+
     render() {
         return (
             <div>
@@ -29,6 +33,12 @@ export class Login extends React.Component {
                 </Container>
             </div>
         );
+    }
+
+    onChange() {
+        this.setState({
+            number: store.getState()
+        });
     }
 
     getStoreState() {

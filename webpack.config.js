@@ -9,13 +9,12 @@ const HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
 
 module.exports = {
     entry: [
-        './src/app/index.js'
+        './src/app/main.js'
     ],
 
     output: {
         path: path.join(__dirname, 'dist'),
         filename: 'bundle.js',
-
     },
 
     module: {
