@@ -1,0 +1,13 @@
+.main-tab {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    & .nav {
+        display: flex;
+        & li {
+            flex: 1;
+            text-align: center;
+        }
+    }
+}

@@ -47,7 +47,7 @@ export class Login extends React.Component {
     }
 
     increase() {
-        // store触发reducer
+        // store触发reducer 使用 ActionCreateFunc 使得 action 更灵活
         store.dispatch(increaseNumber(2));
     }
 

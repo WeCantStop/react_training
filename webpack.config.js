@@ -17,10 +17,14 @@ module.exports = {
         filename: 'bundle.js',
     },
 
+    resolve: {
+        extensions: ['', '.js', '.jsx']
+    },
+
     module: {
         loaders: [
             {
-                test: /\.js[x]?$/,
+                test:  /\.js|jsx$/,
                 exclude: /node_modules/,
                 loader: 'babel-loader',
                 query: {

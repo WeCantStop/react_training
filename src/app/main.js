@@ -1,8 +1,7 @@
 // Main
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {HashRouter} from 'react-router-dom';
-import {DashBoard, Main} from '../pages/dashboard/index.jsx';
+import { Root } from '../router/index.jsx'
 
 
 export class App extends React.Component {
@@ -12,12 +11,7 @@ export class App extends React.Component {
     }
     render() {
         return (
-            <HashRouter>
-                <div>
-                    <DashBoard></DashBoard>
-                    <Main></Main>
-                </div>
-            </HashRouter>
+            <Root />
         );
     }
 }
