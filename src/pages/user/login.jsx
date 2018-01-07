@@ -24,7 +24,7 @@ export class Login extends React.Component {
                 <h2 className="login-title">Login Page!444444</h2>
                 <Header title="Login Page"/>
                 <Container>
-                    <h1>我是container里面的内容</h1>
+                    <h1>我是container里面的内容1</h1>
                     <h2>我是container里面的内容2</h2>
                     <h3>我是container里面的内容3</h3>
                     <h3>{this.state.number}</h3>

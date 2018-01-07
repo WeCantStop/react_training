@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {store} from '../../Redux/Store/index.jsx';
 
 export class Discovery extends Component {
     constructor(props) {
@@ -8,7 +9,14 @@ export class Discovery extends Component {
 
     render() {
         return (
-            <h2>{this.state.title}</h2>
+            <div>
+                <h2>{this.state.title}</h2>
+                <button onClick={this.showStore}>打印Store</button>
+            </div>
         )
+    }
+
+    showStore() {
+        console.log(store.getState());
     }
 }
