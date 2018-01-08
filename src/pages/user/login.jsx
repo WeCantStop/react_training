@@ -1,9 +1,9 @@
 import React from 'react';
-import {Header} from '../../components/header.jsx';
-import {Container} from "../../components/container.jsx";
+import {Header} from '../../components/header';
+import {Container} from "../../components/container";
 import './login.scss';
-import {store} from '../../Redux/Store/index.jsx'
-import {increaseNumber, decreaseNumber} from '../../Redux/Actions/index.jsx';
+import {store} from '../../Redux/Store/index'
+import {increaseNumber, decreaseNumber} from '../../Redux/Actions/index';
 
 
 export class Login extends React.Component {

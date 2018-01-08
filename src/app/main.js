@@ -1,7 +1,7 @@
 // Main
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Root } from '../router/index.jsx'
+import { Root } from '../router/'
 
 
 export class App extends React.Component {
