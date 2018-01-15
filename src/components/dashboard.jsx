@@ -15,7 +15,7 @@ export class DashBoard extends Component {
                     <ul className='nav'>
                         <li><Link to='/'>Home</Link></li>
                         <li><Link to='/login'>Login</Link></li>
-                        <li><Link to='/discovery'>discovery</Link></li>
+                        <li><Link to='/discovery'>Discovery</Link></li>
                         <li><Link to='/setting'>Setting</Link></li>                        
                     </ul>
                 </nav>
