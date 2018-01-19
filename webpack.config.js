@@ -15,6 +15,7 @@ module.exports = {
     output: {
         path: path.join(__dirname, 'dist'),
         filename: 'bundle.js',
+        chunkFilename: '[name]-[id].[chunkhash:8].bundle.js'
     },
 
     resolve: {
@@ -37,6 +38,14 @@ module.exports = {
             {
                 test: /\.scss$/,
                 loaders: ['style-loader', 'css-loader', 'sass-loader']
+            },
+            // 按需加载
+            {
+                // 匹配routers下面所有文件
+                // ([^/]+)\/?([^/]*) 匹配xxx/xxx 或者 xxx
+                test: /pages\/([^/]+)\/?([^/]*)\.jsx?$/,
+                include: path.resolve(__dirname, 'src/router/'),
+                loaders: ['bundle-loader?lazy', 'babel-loader']
             }
 
         ],
