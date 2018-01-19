@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Header} from '../../components/header.jsx';
+import {Header} from '../../components/header';
 import './home.scss';
 
 export class Home extends Component {

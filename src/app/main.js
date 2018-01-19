@@ -1,8 +1,11 @@
 // Main
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Root } from '../router/index.jsx'
-
+import { Provider } from 'react-redux'
+import { HashRouter } from 'react-router-dom'
+import { store} from "../redux/index";
+import { MainRoots } from '../router/'
+import { DashBoard } from "../components/dashboard";
 
 export class App extends React.Component {
     constructor(props) {
@@ -11,7 +14,14 @@ export class App extends React.Component {
     }
     render() {
         return (
-            <Root />
+            <Provider store={store}>
+                <HashRouter>
+                    <div className={'main-wrapper'}>
+                        <MainRoots />
+                        <DashBoard />
+                    </div>
+                </HashRouter>
+            </Provider>
         );
     }
 }
