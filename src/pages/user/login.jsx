@@ -1,58 +1,72 @@
-import React from 'react';
-import {Header} from '../../components/header';
-import {Container} from "../../components/container";
+import React, { Component } from 'react'
+import PropTypes from 'prop-types';
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import { increaseNumber, decreaseNumber } from "../../Redux/Actions/index";
+import { Header } from '../../components/header'
+import { Container } from "../../components/container"
 import './login.scss';
-import {store} from '../../Redux/Store/index'
-import {increaseNumber, decreaseNumber} from '../../Redux/Actions/index';
 
+class Login extends Component {
 
-export class Login extends React.Component {
+    static defaultProps = {
+        number: 0
+    };
+    static propTypes = {
+        number: PropTypes.number
+    };
+
     constructor(props) {
         super(props);
-        this.state = {
-            number: store.getState()
-        }
-    }
-
-    componentWillMount() {
-        const subscription$ = store.subscribe(this.onChange.bind(this));
+        this.state = {}
     }
 
     render() {
+        const { number } = this.props;
         return (
             <div>
                 <h2 className="login-title">Login Page!444444</h2>
                 <Header title="Login Page"/>
                 <Container>
-                    <h1>我是container里面的内容</h1>
-                    <h2>我是container里面的内容2</h2>
-                    <h3>我是container里面的内容3</h3>
-                    <h3>{this.state.number}</h3>
-                    <button onClick={this.getStoreState}>打印Store</button>
-                    <button onClick={this.increase}>+1</button>
-                    <button onClick={this.decrease}>-1</button>
+                    <h1>container内容</h1>
+                    <h2>container内容2</h2>
+                    <h3>container内容3</h3>
+                    <h4>{number}</h4>
+                    <button onClick={this.logger.bind(this)}>打印Store</button>
+                    <button onClick={this.addNum.bind(this)}>+1</button>
+                    <button onClick={this.decreaseNum.bind(this)}>-1</button>
                 </Container>
             </div>
         );
     }
 
-    onChange() {
-        this.setState({
-            number: store.getState()
-        });
+    logger() {
+        console.log(321);
     }
 
-    getStoreState() {
-        console.log(store.getState());
+    addNum() {
+        this.props.addNum(2);
     }
 
-    increase() {
-        // store触发reducer 使用 ActionCreateFunc 使得 action 更灵活
-        store.dispatch(increaseNumber(2));
-    }
-
-    decrease() {
-        // store触发reducer
-        store.dispatch(decreaseNumber(1));
+    decreaseNum() {
+        this.props.decreaseNum(1);
     }
 }
+
+function mapStateToProps(state) {
+    return {
+        number: state
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        addNum: bindActionCreators(increaseNumber,dispatch),
+        decreaseNum: bindActionCreators(decreaseNumber,dispatch)
+    }
+}
+
+// react-redux 特定的绑定 到store
+export default connect(
+    mapStateToProps, mapDispatchToProps
+)(Login);

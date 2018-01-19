@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
-import { HashRouter } from 'react-router-dom'
 import { Switch, Route } from 'react-router-dom'
-import { DashBoard } from '../components/dashboard'
 import { Home } from '../pages/home/home'
-import { Login } from '../pages/user/login'
+import Login from '../pages/user/login'
 import { Discovery } from '../pages/discovery/discovery'
 import { Setting } from '../pages/setting/setting'
 
@@ -27,12 +25,7 @@ export class Root extends Component {
 
     render() {
         return (
-            <HashRouter>
-                <div>
-                    <MainRoots/>
-                    <DashBoard/>
-                </div>
-            </HashRouter>
+            <MainRoots/>
         )
     }
 }
