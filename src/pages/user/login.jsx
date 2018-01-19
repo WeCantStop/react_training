@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { increaseNumber, decreaseNumber } from "../../Redux/Actions/index";
+import { increaseNumber, decreaseNumber } from "../../redux/actions";
 import { Header } from '../../components/header'
 import { Container } from "../../components/container"
 import './login.scss';

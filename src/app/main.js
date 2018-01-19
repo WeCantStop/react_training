@@ -3,8 +3,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'
 import { HashRouter } from 'react-router-dom'
-import { store} from "../Redux/Store/index";
-import { Root } from '../router/'
+import { store} from "../redux/index";
+import { MainRoots } from '../router/'
 import { DashBoard } from "../components/dashboard";
 
 export class App extends React.Component {
@@ -17,7 +17,7 @@ export class App extends React.Component {
             <Provider store={store}>
                 <HashRouter>
                     <div className={'main-wrapper'}>
-                        <Root />
+                        <MainRoots />
                         <DashBoard />
                     </div>
                 </HashRouter>
