@@ -42,7 +42,7 @@ class Discovery extends Component {
 
 function mapStateToProps(state) {
     return {
-        number: state
+        number: state.count
     }
 }
 

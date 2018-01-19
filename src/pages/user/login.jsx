@@ -41,11 +41,11 @@ class Login extends Component {
     }
 
     logger() {
-        console.log(321);
+        console.log(this.props.number);
     }
 
     addNum() {
-        this.props.addNum(2);
+        this.props.addNum(1);
     }
 
     decreaseNum() {
@@ -55,7 +55,7 @@ class Login extends Component {
 
 function mapStateToProps(state) {
     return {
-        number: state
+        number: state.count
     }
 }
 

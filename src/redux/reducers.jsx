@@ -1,4 +1,6 @@
 // Reduces
+
+// 计数器
 export const count = (state = 0, action = {}) => {
     switch (action.type) {
         case "INCREASE_NUMBER": {

@@ -2,8 +2,8 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { count } from './reducers';
 
-// const reducer = combineReducers({
-//     number: count
-// });
+const reducers = combineReducers({
+    count
+});
 
-export const store = createStore(count);
+export const store = createStore(reducers);
