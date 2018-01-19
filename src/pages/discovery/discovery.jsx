@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-import React, {Component} from 'react';
-import {store} from '../../Redux/Store/index.jsx';
-=======
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import { bindActionCreators } from 'redux'
@@ -17,7 +13,6 @@ class Discovery extends Component {
     static propsTypes = {
         number: PropTypes.number
     };
->>>>>>> 21048d39946a1d70bdbf678f360a2543f2a36304
 
     constructor(props) {
         super(props);
@@ -29,23 +24,13 @@ class Discovery extends Component {
         return (
             <div>
                 <h2>{this.state.title}</h2>
-<<<<<<< HEAD
-                <button onClick={this.showStore}>打印Store</button>
-=======
                 <h2>{number}</h2>
                 <button onClick={this.increaseNum.bind(this)}>+3</button>
                 <button onClick={this.decreaseNum.bind(this)}>-2</button>
->>>>>>> 21048d39946a1d70bdbf678f360a2543f2a36304
             </div>
         )
     }
 
-<<<<<<< HEAD
-    showStore() {
-        console.log(store.getState());
-    }
-}
-=======
     increaseNum() {
         this.props.increaseNumber(3);
     }
@@ -72,4 +57,3 @@ function mapDispatchToProps(dispatch) {
 export default connect(
     mapStateToProps, mapDispatchToProps
 )(Discovery);
->>>>>>> 21048d39946a1d70bdbf678f360a2543f2a36304

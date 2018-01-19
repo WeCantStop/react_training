@@ -28,15 +28,6 @@ class Login extends Component {
                 <h2 className="login-title">Login Page!444444</h2>
                 <Header title="Login Page"/>
                 <Container>
-<<<<<<< HEAD
-                    <h1>我是container里面的内容1</h1>
-                    <h2>我是container里面的内容2</h2>
-                    <h3>我是container里面的内容3</h3>
-                    <h3>{this.state.number}</h3>
-                    <button onClick={this.getStoreState}>打印Store</button>
-                    <button onClick={this.increase}>+1</button>
-                    <button onClick={this.decrease}>-1</button>
-=======
                     <h1>container内容</h1>
                     <h2>container内容2</h2>
                     <h3>container内容3</h3>
@@ -44,7 +35,6 @@ class Login extends Component {
                     <button onClick={this.logger.bind(this)}>打印Store</button>
                     <button onClick={this.addNum.bind(this)}>+1</button>
                     <button onClick={this.decreaseNum.bind(this)}>-1</button>
->>>>>>> 21048d39946a1d70bdbf678f360a2543f2a36304
                 </Container>
             </div>
         );
