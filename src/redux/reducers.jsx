@@ -14,3 +14,24 @@ export const count = (state = 0, action = {}) => {
         default: return state;
     }
 };
+
+// Todo List
+const initTodoThings = {
+    todoList: []
+}
+export const todoList = (state = initTodoThings, action = {}) => {
+    switch (action.type) {
+        case 'ADD_THING': {
+            state.todoList.push({thing: action.thing});
+            return Object.assign({}, state);
+            // return Object.assign(state, ...action.thing)
+            // return ['test'];
+        }
+
+        case 'REMOVE_THING': {
+            
+        }
+        
+        default: return state;
+    }
+}

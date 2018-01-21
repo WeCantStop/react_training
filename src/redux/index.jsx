@@ -1,9 +1,10 @@
 // Store
 import { createStore, combineReducers, applyMiddleware } from 'redux';
-import { count } from './reducers';
+import { count, todoList } from './reducers';
 
 const reducers = combineReducers({
-    count
+    count,
+    todoList
 });
 
 export const store = createStore(reducers);
