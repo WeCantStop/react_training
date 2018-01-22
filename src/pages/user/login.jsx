@@ -13,7 +13,8 @@ class Login extends Component {
         number: 0
     };
     static propTypes = {
-        number: PropTypes.number
+        number: PropTypes.number,
+        todoList: PropTypes.array
     };
 
     constructor(props) {
@@ -35,6 +36,18 @@ class Login extends Component {
                     <button onClick={this.logger.bind(this)}>打印Store</button>
                     <button onClick={this.addNum.bind(this)}>+1</button>
                     <button onClick={this.decreaseNum.bind(this)}>-1</button>
+                    <ul>
+                        {
+                            this.props.todoList.map( (thing, index) => {
+                                return <li>
+                                            <span>{index+1}</span>
+                                            <span>.</span>
+                                            <span>{thing}</span>
+                                        </li>
+                            })
+                        }
+                    </ul>
+
                 </Container>
             </div>
         );
@@ -55,7 +68,8 @@ class Login extends Component {
 
 function mapStateToProps(state) {
     return {
-        number: state.count
+        number: state.count,
+        todoList: state.todoList
     }
 }
 

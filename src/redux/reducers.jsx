@@ -1,37 +1,28 @@
 // Reduces
+import * as actionTypes from './actionTypes'
 
 // 计数器
 export const count = (state = 0, action = {}) => {
     switch (action.type) {
-        case "INCREASE_NUMBER": {
+        case actionTypes.INCREASE_NUMBER:
             return state + action.number;
-        }
 
-        case "DECREASE_NUMBER": {
+        case actionTypes.DECREASE_NUMBER:
             return state - action.number;
-        }
 
         default: return state;
     }
 };
 
 // Todo List
-const initTodoThings = {
-    todoList: []
-}
-export const todoList = (state = initTodoThings, action = {}) => {
+export const todoList = (state = [], action = {}) => {
     switch (action.type) {
-        case 'ADD_THING': {
-            state.todoList.push({thing: action.thing});
-            return Object.assign({}, state);
-            // return Object.assign(state, ...action.thing)
-            // return ['test'];
-        }
+        case actionTypes.ADD_THING:
+            return [...state, [...action.thing]];
 
-        case 'REMOVE_THING': {
-            
-        }
+        case actionTypes.REMOVE_THING:
         
-        default: return state;
+        default:
+            return state;
     }
-}
+};

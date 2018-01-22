@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { increaseNumber, decreaseNumber, addThing } from '../../redux/actions'
+import './discovery.scss'
 
 class Discovery extends Component {
 
@@ -24,6 +25,15 @@ class Discovery extends Component {
         }
     }
 
+    componentDidMount() {
+        // 这里打印学习...扩展运算符
+        console.log(...'abc');
+        console.log([...'abc']);
+        let arr1 = ['a', 'b', 'c'],
+            arr2 = ['j', 'k', 'l'];
+        console.log([...arr1,...arr2]);
+    }
+
     render() {
         const {number} = this.props;
         return (
@@ -34,13 +44,17 @@ class Discovery extends Component {
                 <button onClick={this.decreaseNum.bind(this)}>-2</button>
                 <h2>A todo List:</h2>
                 <div className="input-wrapper">
-                    <input type="text" name="thing" value={this.state.input} onChange={this.handleChange.bind(this)}/>
+                    <input type="text" name="thing" value={this.state.input} onChange={this.handleChange.bind(this)} onKeyUp={this.addThing.bind(this)}/>
                 </div>
                 <button onClick={this.addThing.bind(this)}>增加</button>
                 <ul className="todo-list">
                     {
-                        this.props.todoList.map( (value, index) => {
-                            return <li key={index}>{value.thing}</li>
+                        this.props.todoList.map( (thing, index) => {
+                            return <li className={'todo-list-item'} key={index}>
+                                        <span>{index+1}</span>
+                                        <span>.</span>
+                                        <span>{thing}</span>
+                                    </li>
                         })
                     }
                 </ul>
@@ -62,18 +76,21 @@ class Discovery extends Component {
         })
     }
 
-    addThing() {
-        this.props.addThing(this.state.input);
-        this.setState({
-            input: ''
-        })
+    addThing(e) {
+        if (e.keyCode === 13 || e.type === 'click'){
+            if (!this.state.input) return;
+            this.props.addThing(this.state.input);
+            this.setState({
+                input: ''
+            })
+        }
     }
 }
 
 function mapStateToProps(state) {
     return {
         number: state.count,
-        todoList: state.todoList.todoList
+        todoList: state.todoList
     }
 }
 
