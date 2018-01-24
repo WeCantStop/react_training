@@ -1,11 +1,16 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const uglilyJsPlugin = require('uglifyjs-webpack-plugin')
+const path = require('path')
 
+// html 复制模板
 const HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
     template: path.join(__dirname, 'src/app/index.html'),
     filename: 'index.html',
     inject: 'body',
 });
+
+// 压缩js
+const ugliyJs = new uglilyJsPlugin();
 
 module.exports = {
     entry: [
@@ -56,5 +61,5 @@ module.exports = {
         port: 8008,
     },
     // plugins 放置所使用的外挂
-    plugins: [HTMLWebpackPluginConfig],
+    plugins: [HTMLWebpackPluginConfig, ugliyJs],
 };

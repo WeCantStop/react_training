@@ -18,7 +18,7 @@ export const count = (state = 0, action = {}) => {
 export const todoList = (state = [], action = {}) => {
     switch (action.type) {
         case actionTypes.ADD_THING:
-            return [...state, [...action.thing]];
+            return [...state, action.thing];
 
         case actionTypes.REMOVE_THING:
         

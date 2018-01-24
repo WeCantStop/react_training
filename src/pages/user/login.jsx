@@ -39,7 +39,7 @@ class Login extends Component {
                     <ul>
                         {
                             this.props.todoList.map( (thing, index) => {
-                                return <li>
+                                return <li key={index}>
                                             <span>{index+1}</span>
                                             <span>.</span>
                                             <span>{thing}</span>
