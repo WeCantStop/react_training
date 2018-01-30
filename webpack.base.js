@@ -1,16 +1,15 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const uglilyJsPlugin = require('uglifyjs-webpack-plugin')
-const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const path = require('path');
 
 // html 复制模板
-const HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
+const htmlWebpackPlugin = new HtmlWebpackPlugin({
     template: path.join(__dirname, 'src/app/index.html'),
     filename: 'index.html',
     inject: 'body',
 });
-
-// 压缩js
-const ugliyJs = new uglilyJsPlugin();
+// 清除dist文件夹
+const clearDistPlugin =  new CleanWebpackPlugin('dist');
 
 module.exports = {
     entry: [
@@ -19,7 +18,7 @@ module.exports = {
 
     output: {
         path: path.join(__dirname, 'dist'),
-        filename: 'bundle.js',
+        filename: 'app.[name].js',
         chunkFilename: '[name]-[id].[chunkhash:8].bundle.js'
     },
 
@@ -31,18 +30,19 @@ module.exports = {
     },
     
     module: {
-        loaders: [
+        rules: [
             {
                 test:  /\.js|jsx$/,
                 exclude: /node_modules/,
-                loader: 'babel-loader',
-                query: {
-                    presets: ['es2015', 'react', 'stage-0'],
-                }
+                use: 'babel-loader'
             },
             {
                 test: /\.scss$/,
-                loaders: ['style-loader', 'css-loader', 'sass-loader']
+                use: ['style-loader', 'css-loader', 'sass-loader']
+            },
+            {
+                test: /\.(jpg|png|gif)$/,
+                use: ['file-loader']
             },
             // 按需加载
             {
@@ -55,11 +55,7 @@ module.exports = {
 
         ],
     },
-    // devServer 则是 webpack-dev-server 设定
-    devServer: {
-        inline: true,
-        port: 8008,
-    },
-    // plugins 放置所使用的外挂
-    plugins: [HTMLWebpackPluginConfig, ugliyJs],
+
+    // plugins 放置所使用的插件
+    plugins: [htmlWebpackPlugin, clearDistPlugin],
 };

@@ -20,7 +20,6 @@ export class App extends React.Component {
                     <div className={'main-wrapper'}>
                         <MainRoots/>
                         <DashBoard/>
-                        <DevTools/>
                     </div>
                 </HashRouter>
             </Provider>

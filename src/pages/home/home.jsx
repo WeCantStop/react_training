@@ -6,7 +6,7 @@ export class Home extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            homeTitle: 'Home Page!33333333',
+            homeTitle: 'Home Page!',
             clickStarName: '未点击star',
             starList: [
                 {name: 'jay', age: 20},

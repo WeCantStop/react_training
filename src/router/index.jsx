@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Switch, Route } from 'react-router-dom'
-import Bundle from '../../lib/bundle'
+import Bundle from '../lib/bundle'
 import { Home } from '../pages/home/home'
 import LoginContainer from 'bundle-loader?lazy&name=[name]!../pages/user/login'
 import DiscoveryContainer from 'bundle-loader?lazy&name=[name]!../pages/discovery/discovery'
