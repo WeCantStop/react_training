@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Header} from '../../components/header';
 import './home.scss';
+import img from '../../assets/pkq.jpg';
 
 export class Home extends Component {
     constructor(props) {
@@ -59,6 +60,7 @@ export class Home extends Component {
                         })
                     }
                 </ul>
+                <img className={"full-width-img"} src={img} />
             </div>
         );
     }

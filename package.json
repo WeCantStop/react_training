@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --config webpack.dev",
-    "dev": "webpack-dev-server --config webpack.dev",
-    "build": "webpack --config webpack.prod.js --progress --colors"
+    "start": "webpack-dev-server --config webpack.config.dev",
+    "dev": "webpack-dev-server --config webpack.config.dev",
+    "build": "webpack --config webpack.config.prod.js --progress --colors"
   },
   "author": "will",
   "license": "MIT",
@@ -30,6 +30,7 @@
     "sass-loader": "^6.0.6",
     "style-loader": "^0.19.1",
     "uglifyjs-webpack-plugin": "^1.1.6",
+    "url-loader": "^0.6.2",
     "webpack": "^3.10.0",
     "webpack-dev-server": "^2.9.7",
     "webpack-merge": "^4.1.1"

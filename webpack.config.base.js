@@ -42,7 +42,16 @@ module.exports = {
             },
             {
                 test: /\.(jpg|png|gif)$/,
-                use: ['file-loader']
+                exclude: /node_modules/,                
+                use: [
+                    {
+                        loader: 'url-loader',  
+                        options: {  
+                            limit: '10000',
+                            name: 'images/[name]-[hash:5].[ext]'  
+                        }
+                    },
+                ]
             },
             // 按需加载
             {
