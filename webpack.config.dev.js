@@ -1,4 +1,4 @@
-const webpackBaseConfig = require('./webpack.base');
+const webpackBaseConfig = require('./webpack.config.base');
 const Merge = require('webpack-merge');
 const webpack = require('webpack');
 const path = require('path');
@@ -17,12 +17,10 @@ module.exports = Merge(webpackBaseConfig, {
     devServer: {
         contentBase: path.resolve(__dirname, 'dist'),
         port: 8010,
-        hot: true,
         inline: true,
-        hotOnly: true,
         open: true,
         stats: {
-            colors: true,
+            colors: true
         }
     },
 })

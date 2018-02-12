@@ -1,4 +1,4 @@
-const webpackBaseConfig = require('./webpack.base');
+const webpackBaseConfig = require('./webpack.config.base');
 const Merge = require('webpack-merge');
 const webpack = require('webpack');
 
@@ -10,4 +10,4 @@ module.exports = Merge(webpackBaseConfig, {
         }),
         new webpack.optimize.UglifyJsPlugin()
     ]
-})
+});

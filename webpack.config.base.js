@@ -1,5 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const webpack = require('webpack');
 const path = require('path');
 
 // html 复制模板
@@ -11,15 +13,23 @@ const htmlWebpackPlugin = new HtmlWebpackPlugin({
 // 清除dist文件夹
 const clearDistPlugin =  new CleanWebpackPlugin('dist');
 
+const extractSass = new ExtractTextPlugin('css/[name].[hash:8].css');
+
+const commonChunkPlugin = new webpack.optimize.CommonsChunkPlugin({
+        names: ['vendor', 'manifest']
+});
+
 module.exports = {
-    entry: [
-        './src/app/main.js'
-    ],
+    entry: {
+        app: './src/app/main.js',
+        vendor: ['react', 'react-dom', 'redux', 'react-redux', 'react-router-dom']
+    },
 
     output: {
         path: path.join(__dirname, 'dist'),
-        filename: 'app.[name].js',
-        chunkFilename: '[name]-[id].[chunkhash:8].bundle.js'
+        filename: '[name].[hash:8].js',
+        publicPath: '/',
+        chunkFilename: 'js/[name]-[id].[chunkHash:8].bundle.js'
     },
 
     resolve: {
@@ -38,17 +48,25 @@ module.exports = {
             },
             {
                 test: /\.scss$/,
-                use: ['style-loader', 'css-loader', 'sass-loader']
+                include:[path.resolve(__dirname, "./src")],
+                use: extractSass.extract({
+                    allChunks: true,
+                    fallback: 'style-loader',
+                    use: [
+                        'css-loader?minimize=true',
+                        'sass-loader'
+                    ]
+                })
             },
             {
                 test: /\.(jpg|png|gif)$/,
-                exclude: /node_modules/,                
+                exclude: /node_modules/,
                 use: [
                     {
                         loader: 'url-loader',  
                         options: {  
                             limit: '10000',
-                            name: 'images/[name]-[hash:5].[ext]'  
+                            name: 'images/[name]-[hash:5].[ext]'
                         }
                     },
                 ]
@@ -66,5 +84,10 @@ module.exports = {
     },
 
     // plugins 放置所使用的插件
-    plugins: [htmlWebpackPlugin, clearDistPlugin],
+    plugins: [
+        htmlWebpackPlugin,
+        clearDistPlugin,
+        extractSass,
+        commonChunkPlugin
+    ],
 };

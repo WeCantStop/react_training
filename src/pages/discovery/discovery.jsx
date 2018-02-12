@@ -26,12 +26,21 @@ class Discovery extends Component {
     }
 
     componentDidMount() {
-        // 这里打印学习...扩展运算符
-        console.log(...'abc');
-        console.log([...'abc']);
-        let arr1 = ['a', 'b', 'c'],
-            arr2 = ['j', 'k', 'l'];
-        console.log([...arr1,...arr2]);
+        // 这里打印学习...扩展运算符   
+        // console.log(...'abc');
+        // console.log([...'abc']);
+        // let arr1 = ['a', 'b', 'c'],
+        //     arr2 = ['j', 'k', 'l'];
+        // console.log([...arr1,...arr2]);
+        let obj1 = {one: '1', two: '2', three: '3'};
+        let obj2 = {four: '4'}
+        
+        let array = ['one', 'two', 'three'];
+
+        let resultObj = {...obj1, ...obj2}; // 相当于 Object.assign({}, obj1, obj2);
+        console.log(resultObj);
+
+        console.log(...array);
     }
 
     render() {
