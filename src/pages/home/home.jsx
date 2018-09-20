@@ -1,4 +1,5 @@
-import {Component} from 'react';
+import React, {Component} from 'react';
+import { Header } from '../../components/header';
 import './home.scss';
 import img from '../../assets/pkq.jpg';
 

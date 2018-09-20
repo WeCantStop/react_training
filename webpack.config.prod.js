@@ -10,4 +10,4 @@ module.exports = Merge(webpackBaseConfig, {
         }),
         new webpack.optimize.UglifyJsPlugin()
     ]
-})
+});

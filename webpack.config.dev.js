@@ -17,12 +17,10 @@ module.exports = Merge(webpackBaseConfig, {
     devServer: {
         contentBase: path.resolve(__dirname, 'dist'),
         port: 8010,
-        hot: true,
         inline: true,
-        hotOnly: true,
         open: true,
         stats: {
-            colors: true,
+            colors: true
         }
     },
 })

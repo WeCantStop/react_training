@@ -27,7 +27,7 @@ class Login extends Component {
         return (
             <div>
                 <h2 className="login-title">Login Page!444444</h2>
-                <Header title="Login Page"/>
+                <Header title="Login Page" />
                 <Container>
                     <h1>container内容</h1>
                     <h2>container内容2</h2>
@@ -38,12 +38,12 @@ class Login extends Component {
                     <button onClick={this.decreaseNum.bind(this)}>-1</button>
                     <ul>
                         {
-                            this.props.todoList.map( (thing, index) => {
+                            this.props.todoList.map((thing, index) => {
                                 return <li key={index}>
-                                            <span>{index+1}</span>
-                                            <span>.</span>
-                                            <span>{thing}</span>
-                                        </li>
+                                    <span>{index + 1}</span>
+                                    <span>.</span>
+                                    <span>{thing}</span>
+                                </li>
                             })
                         }
                     </ul>
@@ -75,8 +75,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        addNum: bindActionCreators(increaseNumber,dispatch),
-        decreaseNum: bindActionCreators(decreaseNumber,dispatch)
+        addNum: bindActionCreators(increaseNumber, dispatch),
+        decreaseNum: bindActionCreators(decreaseNumber, dispatch)
     }
 }
 
