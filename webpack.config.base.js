@@ -1,5 +1,8 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const webpack = require('webpack');
+
 const path = require('path');
 
 // html 复制模板
@@ -12,14 +15,15 @@ const htmlWebpackPlugin = new HtmlWebpackPlugin({
 const clearDistPlugin =  new CleanWebpackPlugin('dist');
 
 module.exports = {
-    entry: [
-        './src/app/main.js'
-    ],
+    entry: {
+        app: path.join(__dirname, 'src/app/main.js'),
+        vendor: ['react', 'redux', 'react-redux', 'react-router-dom', 'react-dom']
+    },
 
     output: {
         path: path.join(__dirname, 'dist'),
-        filename: 'app.[name].js',
-        chunkFilename: '[name]-[id].[chunkhash:8].bundle.js'
+        filename: '[name].js',
+        chunkFilename: 'js/[name]-[id].[chunkhash:8].bundle.js'
     },
 
     resolve: {
@@ -38,7 +42,11 @@ module.exports = {
             },
             {
                 test: /\.scss$/,
-                use: ['style-loader', 'css-loader', 'sass-loader']
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: ['css-loader?minimize=true', 'sass-loader']
+                })
+                // use: ['style-loader', 'css-loader', 'sass-loader']
             },
             {
                 test: /\.(jpg|png|gif)$/,
@@ -66,5 +74,13 @@ module.exports = {
     },
 
     // plugins 放置所使用的插件
-    plugins: [htmlWebpackPlugin, clearDistPlugin],
+    plugins: [
+        htmlWebpackPlugin,
+        clearDistPlugin,
+        new ExtractTextPlugin('css/[name].[hash:8].css', {allchunks: true}),
+        new webpack.optimize.CommonsChunkPlugin({
+            names: ['vendor'],
+            filename: 'vendor.js'
+          })
+    ]
 };
