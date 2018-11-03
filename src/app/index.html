@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<title>app</title>
@@ -8,18 +9,21 @@
 	<link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 	<script src="https://as.alipayobjects.com/g/component/fastclick/1.0.6/fastclick.js"></script>
 </head>
+
 <body>
 	<!-- 欲插入 React Component 的位置 -->
 	<div id="app"></div>
 </body>
 <script>
 	if ('addEventListener' in document) {
-      document.addEventListener('DOMContentLoaded', function() {
-        FastClick.attach(document.body);
-      }, false);
-    }
-    if(!window.Promise) {
-      document.writeln('<script src="https://as.alipayobjects.com/g/component/es6-promise/3.2.2/es6-promise.min.js"'+'>'+'<'+'/'+'script>');
-    }
+		document.addEventListener('DOMContentLoaded', function () {
+			FastClick.attach(document.body);
+		}, false);
+	}
+	if (!window.Promise) {
+		document.writeln('<script src="https://as.alipayobjects.com/g/component/es6-promise/3.2.2/es6-promise.min.js"' + '>' +
+			'<' + '/' + 'script>');
+	}
 </script>
+
 </html>

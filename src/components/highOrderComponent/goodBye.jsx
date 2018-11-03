@@ -1,16 +1,16 @@
-import React, {Component} from 'react'
-import wrapperFunc from './highComponent'
+import React, {Component} from 'react';
+import wrapperFunc from './highComponent';
 
 class GoodByeOriginal extends Component {
-    constructor(props) {
-        super(props)
-    }
+	constructor(props) {
+		super(props);
+	}
 
-    render() {
-        return (
-            <div>GoodBye {this.props.username || 'no name'}</div>
-        )
-    }
+	render() {
+		return (
+			<div>GoodBye {this.props.username || 'no name'}</div>
+		);
+	}
 
 }
 

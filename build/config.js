@@ -1,11 +1,11 @@
 module.exports = {
-    dev: {
-        NODE_ENV: 'development',
-        port: 8010,
-        host: 'localhost'
-    },
+	dev: {
+		NODE_ENV: 'development',
+		port: 8010,
+		host: 'localhost'
+	},
 
-    prod: {
-        NODE_ENV: 'production'
-    }
+	prod: {
+		NODE_ENV: 'production'
+	}
 };

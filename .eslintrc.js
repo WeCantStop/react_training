@@ -20,6 +20,7 @@ module.exports = {
             "error",
             "tab"
         ],
+        "no-unused-vars": 0,
         "linebreak-style": [
             "error",
             "unix"

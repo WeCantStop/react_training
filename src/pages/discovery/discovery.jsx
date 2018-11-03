@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { increaseNumber, decreaseNumber, addThing } from '../../redux/actions';
@@ -12,15 +12,6 @@ class Discovery extends Component {
 			title: 'I am Discovery Page',
 			input: ''
 		};
-	}
-
-	componentDidMount() {
-		// 这里打印学习...扩展运算符
-		console.log(...'abc');
-		console.log([...'abc']);
-		let arr1 = ['a', 'b', 'c'],
-			arr2 = ['j', 'k', 'l'];
-		console.log([...arr1, ...arr2]);
 	}
 
 	render() {
