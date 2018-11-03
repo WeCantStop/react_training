@@ -10,21 +10,25 @@ module.exports = {
             "experimentalObjectRestSpread": true,
             "jsx": true
         },
-        "sourceType": "module"
+        "sourceType": "module",
     },
+    "parser": "babel-eslint",
     "plugins": [
         "react"
     ],
     "rules": {
-        "indent": [
-            "error",
-            "tab"
-        ],
+        "indent": ['error', 2],
         "no-unused-vars": 0,
+        "no-multi-spaces": 2,
+        "no-trailing-spaces": 2,
         "linebreak-style": [
             "error",
             "unix"
         ],
+        "key-spacing": [0, {
+            "beforeColon": false,
+            "afterColon": true
+        }],
         "quotes": [
             "error",
             "single"
