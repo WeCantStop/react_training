@@ -3,9 +3,13 @@ import { Button, InputItem } from 'antd-mobile';
 import img from '../../assets/pkq.jpg';
 import './home.scss';
 
-export class Home extends Component {
+export default class Home extends Component {
   constructor(props) {
     super(props);
+  }
+
+  clickBtn = () => {
+    console.log('clicked btn');
   }
 
   render() {

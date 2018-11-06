@@ -5,8 +5,10 @@
     left: 0;
     & .nav {
         display: flex;
+        padding: 0;
         & li {
             flex: 1;
+            list-style: none;
             text-align: center;
         }
     }

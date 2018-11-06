@@ -20,7 +20,11 @@ module.exports = Merge(webpackBaseConfig, {
     hot: true,
     inline: true,
     stats: {
-      colors: true
+      colors: true,
+      builtAt: true,
+      modules: false,
+      children: false,
+      entrypoints: false,
     }
   },
 });

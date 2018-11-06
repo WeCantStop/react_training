@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { HashRouter } from 'react-router-dom';
-import { store} from '../redux/index';
+import { store } from '../redux/index';
 import { MainRoots } from '../router/';
 import { DashBoard } from '../components/dashboard';
 
@@ -22,8 +22,8 @@ export class App extends React.Component {
       <Provider store={store}>
         <HashRouter>
           <div className={'main-wrapper'}>
-            <MainRoots/>
-            <DashBoard/>
+            <MainRoots />
+            <DashBoard />
           </div>
         </HashRouter>
       </Provider>
@@ -31,4 +31,4 @@ export class App extends React.Component {
   }
 }
 
-ReactDOM.render( <App /> , document.getElementById('app'));
+ReactDOM.render(<App />, document.getElementById('app'));
