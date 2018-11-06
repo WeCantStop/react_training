@@ -21,9 +21,9 @@ module.exports = {
 
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: '[name].[hash:8].js',
+    filename: '[name].[hash:5].js',
     publicPath: '/',
-    chunkFilename: 'js/[name]-[id].[chunkHash:8].bundle.js'
+    chunkFilename: 'js/[name].[chunkHash:5].bundle.js'
   },
 
   resolve: {
@@ -35,54 +35,61 @@ module.exports = {
   },
 
   module: {
-    rules: [
-      {
-        test: /\.js|jsx$/,
-        exclude: /node_modules/,
-        use: 'babel-loader'
-      },
-      {
-        test: /\.scss$/,
-        use: ['style-loader', 'css-loader', 'sass-loader']
-      },
-      {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader']
-      },
-      {
-        test: /\.(jpg|png|gif)$/,
-        exclude: /node_modules/,
-        use: [
-          {
-            loader: 'url-loader',
-            options: {
-              limit: '10000',
-              name: 'images/[name]-[hash:5].[ext]'
-            }
-          },
-        ]
-      },
+    rules: [{
+      test: /\.js|jsx$/,
+      exclude: /node_modules/,
+      use: 'babel-loader'
+    },
+    {
+      test: /\.scss$/,
+      use: ['style-loader', 'css-loader', 'sass-loader']
+    },
+    {
+      test: /\.css$/,
+      use: ['style-loader', 'css-loader']
+    },
+    {
+      test: /\.(jpg|png|gif)$/,
+      exclude: /node_modules/,
+      use: [{
+        loader: 'url-loader',
+        options: {
+          limit: '10000',
+          name: 'images/[name]-[hash:5].[ext]'
+        }
+      }, ]
+    },
       // 按需加载
-      {
-        // 匹配routers下面所有文件
-        // ([^/]+)\/?([^/]*) 匹配xxx/xxx 或者 xxx
-        test: /pages\/([^/]+)\/?([^/]*)\.jsx?$/,
-        include: path.resolve(__dirname, 'src/router/'),
-        loaders: ['bundle-loader?lazy', 'babel-loader']
-      }
+    {
+      // 匹配routers下面所有文件
+      // ([^/]+)\/?([^/]*) 匹配xxx/xxx 或者 xxx
+      test: /pages\/([^/]+)\/?([^/]*)\.jsx?$/,
+      include: path.resolve(__dirname, 'src/router/'),
+      loaders: ['bundle-loader?lazy', 'babel-loader']
+    }
     ],
   },
 
   optimization: {
-    runtimeChunk: {
-      name: 'manifest'
-    },
+    namedChunks: true,
     splitChunks: {
+      minSize: 30000,
       cacheGroups: {
         commons: {
-          test: /[\\/]node_modules[\\/]/,
+          chunks: 'initial', // 'initial', 'async', 'all'
+          name: 'commons',
+          minChunks: 2,
+          maxInitialRequests: 5,
+          minSize: 0,
+          priority: 0, // 优先级
+        },
+        vendor: {
+          chunks: 'initial', // 'initial', 'async', 'all'
+          test: /node_modules/,
+          // test: /node_modules/,
           name: 'vendor',
-          chunks: 'all'
+          priority: -10,
+          enforce: true,
         }
       }
     }
@@ -90,7 +97,9 @@ module.exports = {
 
   plugins: [
     // 自己定义的插件
-    new HelloPlugin({ name: 'will' }),
+    new HelloPlugin({
+      name: 'will'
+    }),
     htmlWebpackPlugin,
     clearDistPlugin,
   ],
