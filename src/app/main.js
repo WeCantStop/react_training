@@ -7,6 +7,11 @@ import { store} from '../redux/index';
 import { MainRoots } from '../router/';
 import { DashBoard } from '../components/dashboard';
 
+// 启用热更新
+if (module.hot) {
+  module.hot.accept();
+}
+
 export class App extends React.Component {
   constructor(props) {
     super(props);
