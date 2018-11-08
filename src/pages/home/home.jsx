@@ -16,6 +16,7 @@ export default class Home extends Component {
     return (
       <div>
         <InputItem>姓名:</InputItem>
+        <InputItem>年龄:</InputItem>
         <Button type="primary" onClick={this.clickBtn}>Test Btn</Button>
         <img className={'full-width-img'} src={img} />
       </div>

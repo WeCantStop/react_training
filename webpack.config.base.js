@@ -76,7 +76,7 @@ module.exports = {
       minSize: 30000,
       cacheGroups: {
         commons: {
-          chunks: 'initial', // 'initial', 'async', 'all'
+          chunks: 'initial',
           name: 'commons',
           minChunks: 2,
           maxInitialRequests: 5,
@@ -86,7 +86,6 @@ module.exports = {
         vendor: {
           chunks: 'initial', // 'initial', 'async', 'all'
           test: /node_modules/,
-          // test: /node_modules/,
           name: 'vendor',
           priority: -10,
           enforce: true,
